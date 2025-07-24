@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import '../services/location_service.dart';
+=======
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
+import '../services/location_services.dart';
+>>>>>>> 27ce800 (add logic request to API)
 
 class TrackingScreen extends StatefulWidget {
   final int loanId;
@@ -36,6 +43,7 @@ class _TrackingScreenState extends State<TrackingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Lacak Mobil')),
+<<<<<<< HEAD
       body: _currentPosition == null
           ? Center(child: CircularProgressIndicator())
           : GoogleMap(
@@ -48,6 +56,24 @@ class _TrackingScreenState extends State<TrackingScreen> {
               },
               onMapCreated: (controller) => mapController = controller,
             ),
+=======
+      body:
+          _currentPosition == null
+              ? Center(child: CircularProgressIndicator())
+              : GoogleMap(
+                initialCameraPosition: CameraPosition(
+                  target: _currentPosition!,
+                  zoom: 16,
+                ),
+                markers: {
+                  Marker(
+                    markerId: MarkerId('mobil'),
+                    position: _currentPosition!,
+                  ),
+                },
+                onMapCreated: (controller) => mapController = controller,
+              ),
+>>>>>>> 27ce800 (add logic request to API)
     );
   }
 }
