@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MotoRent-FE 🚗📍
 
 MotoRent-FE adalah aplikasi mobile frontend berbasis Flutter untuk layanan penyewaan mobil yang terintegrasi dengan pelacakan lokasi kendaraan secara real-time. Aplikasi ini merupakan bagian dari ekosistem MotoRent dan berperan sebagai antarmuka pengguna untuk:
@@ -35,3 +36,21 @@ MotoRent-FE adalah aplikasi mobile frontend berbasis Flutter untuk layanan penye
 
 ## 📁 Struktur Folder
 
+=======
+# myapp
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
+>>>>>>> 27ce800 (add logic request to API)

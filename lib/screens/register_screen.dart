@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 
 import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
+=======
+import 'package:flutter/material.dart';
+import '../services/auth_services.dart';
+>>>>>>> 27ce800 (add logic request to API)
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -25,9 +30,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (success) {
       Navigator.pushReplacementNamed(context, '/login');
     } else {
+<<<<<<< HEAD
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Registrasi gagal')),
       );
+=======
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Registrasi gagal')));
+>>>>>>> 27ce800 (add logic request to API)
     }
   }
 
@@ -41,9 +52,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('Register', style: TextStyle(fontSize: 24)),
+<<<<<<< HEAD
               TextField(controller: _nameController, decoration: InputDecoration(labelText: 'Nama')),
               TextField(controller: _emailController, decoration: InputDecoration(labelText: 'Email')),
               TextField(controller: _passwordController, decoration: InputDecoration(labelText: 'Password'), obscureText: true),
+=======
+              TextField(
+                controller: _nameController,
+                decoration: InputDecoration(labelText: 'Nama'),
+              ),
+              TextField(
+                controller: _emailController,
+                decoration: InputDecoration(labelText: 'Email'),
+              ),
+              TextField(
+                controller: _passwordController,
+                decoration: InputDecoration(labelText: 'Password'),
+                obscureText: true,
+              ),
+>>>>>>> 27ce800 (add logic request to API)
               SizedBox(height: 20),
               loading
                   ? CircularProgressIndicator()

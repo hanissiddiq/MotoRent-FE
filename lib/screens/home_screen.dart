@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
-import '../services/car_service.dart';
-import '../services/loan_service.dart';
+import 'package:myapp/services/auth_services.dart';
+
+import '../services/car_services.dart';
+import '../services/loan_services.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -25,14 +26,27 @@ class _HomeScreenState extends State<HomeScreen> {
   void _requestLoan(int carId) async {
     final success = await LoanService.requestLoan(carId);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(success ? 'Berhasil pinjam mobil' : 'Gagal pinjam')),
+      SnackBar(
+        content: Text(success ? 'Berhasil pinjam mobil' : 'Gagal pinjam'),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Daftar Mobil')),
+      appBar: AppBar(
+        title: Text('Daftar Mobil'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () async {
+              await AuthService.logout();
+              Navigator.pushReplacementNamed(context, '/login');
+            },
+          ),
+        ],
+      ),
       body: ListView.builder(
         itemCount: cars.length,
         itemBuilder: (context, index) {
