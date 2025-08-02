@@ -1,11 +1,10 @@
-
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
   static Future<bool> login(String email, String password) async {
-    final url = Uri.parse('https://your-backend-url/api/login');
+    final url = Uri.parse('http://127.0.0.1/api/login');
     final response = await http.post(url, body: {
       'email': email,
       'password': password,
@@ -20,8 +19,9 @@ class AuthService {
     return false;
   }
 
-  static Future<bool> register(String name, String email, String password) async {
-    final url = Uri.parse('https://your-backend-url/api/register');
+  static Future<bool> register(
+      String name, String email, String password) async {
+    final url = Uri.parse('http://127.0.0.1/api/register');
     final response = await http.post(url, body: {
       'name': name,
       'email': email,

@@ -1,16 +1,4 @@
-<<<<<<< HEAD
 
-import 'package:flutter/material.dart';
-import 'screens/login_screen.dart';
-import 'screens/home_screen.dart';
-import 'screens/tracking_screen.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-=======
 import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
@@ -25,8 +13,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
->>>>>>> 27ce800 (add logic request to API)
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,18 +22,13 @@ class MyApp extends StatelessWidget {
       initialRoute: '/login',
       routes: {
         '/login': (_) => LoginScreen(),
-<<<<<<< HEAD
-=======
         '/register': (_) => RegisterScreen(),
->>>>>>> 27ce800 (add logic request to API)
         '/home': (_) => HomeScreen(),
         '/tracking': (_) => TrackingScreen(loanId: 1), // Contoh ID
       },
     );
   }
 }
-<<<<<<< HEAD
-=======
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -134,4 +115,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
->>>>>>> 27ce800 (add logic request to API)
+

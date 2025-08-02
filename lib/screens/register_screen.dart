@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-
-import 'package:flutter/material.dart';
-import '../services/auth_service.dart';
-=======
 import 'package:flutter/material.dart';
 import '../services/auth_services.dart';
->>>>>>> 27ce800 (add logic request to API)
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -27,57 +21,184 @@ class _RegisterScreenState extends State<RegisterScreen> {
       _passwordController.text,
     );
     setState(() => loading = false);
+
     if (success) {
       Navigator.pushReplacementNamed(context, '/login');
     } else {
-<<<<<<< HEAD
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Registrasi gagal')),
       );
-=======
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text('Registrasi gagal')));
->>>>>>> 27ce800 (add logic request to API)
     }
+  }
+
+  void _login() {
+    Navigator.pushNamed(context, '/login');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Register', style: TextStyle(fontSize: 24)),
-<<<<<<< HEAD
-              TextField(controller: _nameController, decoration: InputDecoration(labelText: 'Nama')),
-              TextField(controller: _emailController, decoration: InputDecoration(labelText: 'Email')),
-              TextField(controller: _passwordController, decoration: InputDecoration(labelText: 'Password'), obscureText: true),
-=======
-              TextField(
-                controller: _nameController,
-                decoration: InputDecoration(labelText: 'Nama'),
+      body: Stack(
+        children: [
+          // Background image
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/Car1.jpg'),
+                fit: BoxFit.cover,
               ),
-              TextField(
-                controller: _emailController,
-                decoration: InputDecoration(labelText: 'Email'),
-              ),
-              TextField(
-                controller: _passwordController,
-                decoration: InputDecoration(labelText: 'Password'),
-                obscureText: true,
-              ),
->>>>>>> 27ce800 (add logic request to API)
-              SizedBox(height: 20),
-              loading
-                  ? CircularProgressIndicator()
-                  : ElevatedButton(onPressed: _register, child: Text('Daftar')),
-            ],
+            ),
           ),
-        ),
+          // Gradient overlay
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.transparent,
+                  Colors.transparent,
+                  Color(0xff161627).withOpacity(0.8),
+                  Color(0xff161627),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+          // Register Form
+          Center(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.only(bottom: 40),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    "Register",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 216, 215, 243),
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    'Create a new account to rent your car',
+                    style: TextStyle(color: Colors.grey.shade200, fontSize: 18),
+                  ),
+                  SizedBox(height: 20),
+
+                  // Name input
+                  Container(
+                    height: 60,
+                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextField(
+                      controller: _nameController,
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      decoration: InputDecoration(
+                        labelText: 'Name',
+                        labelStyle: TextStyle(color: Colors.grey.shade200),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(90),
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 231, 155, 12)),
+                        ),
+                        fillColor: Color(0xff161627),
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+
+                  // Email input
+                  Container(
+                    height: 60,
+                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextField(
+                      controller: _emailController,
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        labelStyle: TextStyle(color: Colors.grey.shade200),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(90),
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 231, 155, 12)),
+                        ),
+                        fillColor: Color(0xff161627),
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+
+                  // Password input
+                  Container(
+                    height: 60,
+                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    child: TextField(
+                      controller: _passwordController,
+                      obscureText: true,
+                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        labelStyle: TextStyle(color: Colors.grey.shade200),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(90),
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 231, 155, 12)),
+                        ),
+                        fillColor: Color(0xff161627),
+                        filled: true,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+
+                  // Register button or loading
+                  Container(
+                    height: 50,
+                    width: double.infinity,
+                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    child: loading
+                        ? Center(
+                            child: CircularProgressIndicator(
+                                color: Color.fromARGB(255, 231, 155, 12)))
+                        : ElevatedButton(
+                            onPressed: _register,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  Color.fromARGB(255, 231, 155, 12),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(90),
+                              ),
+                              padding: EdgeInsets.symmetric(vertical: 12),
+                            ),
+                            child: Text(
+                              'Sign Up',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16),
+                            ),
+                          ),
+                  ),
+                  SizedBox(height: 20),
+
+                  Text(
+                    "Already have an account?",
+                    style: TextStyle(color: Colors.grey.shade200, fontSize: 16),
+                  ),
+                  GestureDetector(
+                    onTap: _login,
+                    child: Text(
+                      "Log In here",
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 231, 155, 12),
+                          fontSize: 16),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
