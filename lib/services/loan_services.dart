@@ -5,7 +5,7 @@ import '../services/auth_services.dart';
 class LoanService {
   static Future<bool> requestLoan(int carId) async {
     final token = await AuthService.getToken();
-    final url = Uri.parse('http://10.0.2.2:8000/api/loans');
+    final url = Uri.parse('http://127.0.0.1:8000/api/loans');
 
     final response = await http.post(
       url,
@@ -13,23 +13,24 @@ class LoanService {
       body: {'car_id': '$carId'},
     );
 
-    if (response.statusCode != 200) {
+    if (response.statusCode != 201) {
       print('Gagal request loan: ${response.statusCode} - ${response.body}');
+      // print('Berhasil Pinjam Mobil: ${response.statusCode} - ${response.body}');
     }
 
-    return response.statusCode == 200;
+    return response.statusCode == 201;
   }
 
   static Future<List<dynamic>> fetchLoanHistory() async {
     final token = await AuthService.getToken();
-    final url = Uri.parse('http://10.0.2.2:8000/api/loans/history');
+    final url = Uri.parse('http://127.0.0.1:8000/api/loans/history');
 
     final response = await http.get(
       url,
       headers: {'Authorization': 'Bearer $token', 'Accept': 'application/json'},
     );
 
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       return json.decode(response.body);
     } else {
       print(
